@@ -109,26 +109,6 @@
 .p-6 { padding: 1.5rem; }
 .p-8 { padding: 2rem; }
 
-/* .card {
-  max-width: 768px;
-  min-height: calc(100vh - 6rem);
-  transition: visibility 0s, opacity 0.5s linear;
-  transition-delay: 3s;
-}
-.card.fade-out {
-  opacity: 0;
-}
-.card.fade-in {
-  opacity: 1;
-}
-.card.card-second {
-  max-width: calc(768px - 4rem);
-}
-img { 
-  max-width: 700px;
-}
-.main-footer { background-color: #285e61; } */
-
 @media only screen and (max-width: 768px) {
   .text-md-xs { font-size: .75rem; }
   .text-md-sm { font-size: .875rem; }
@@ -153,16 +133,7 @@ img {
   .text-sm-4xl { font-size: 2.25rem; }
   .text-sm-5xl { font-size: 3rem; }
   .text-sm-6xl { font-size: 4rem; }
-} 
-
-/* @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
-@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
- */
-/* body {
-  background: #FDE3A7;
-	margin: 0px;
-	padding: 0px;
-} */
+}
 
 ::selection {
 	background: transparent;
@@ -256,17 +227,6 @@ img {
 	padding: 0 0 0 10px;
 	z-index: -1;
 }
-/* 
-.card .details p {
-	font-size: 15px;
-	line-height: 5px;
-	transform: rotate(-10deg);
-	padding: 0 0 0 20px;
-} */
-
-/* .card .details h4 {
-	text-align: center;
-}*/
 
 .text-right {
 	text-align: right;
