@@ -150,7 +150,8 @@
 	transform-style: preserve-3d;
 	transform: translate(-50%,-50%) perspective(2000px);
 	box-shadow: inset 300px 0 50px rgba(0,0,0,.5), 20px 0 60px rgba(0,0,0,.5);
-	transition: 1s;
+  transition: 1s;
+  cursor: pointer;
 }
 
 .card.open {
