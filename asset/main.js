@@ -3,7 +3,26 @@ const urlParams = new URLSearchParams(queryString);
 const guest = urlParams.has('guest') ? urlParams.get('guest') : '';
 window.onload = () => {
   document.querySelector('.guest').append(guest);
-  document.querySelector('body').addEventListener('click', toggleDetail)
+
+  const audio = document.querySelector('audio')
+  audio.onplay = function() {
+    document.querySelector('.play-icon').classList.add('hidden')
+    document.querySelector('.pause-icon').classList.remove('hidden')
+  }
+  audio.onpause = function() {
+    document.querySelector('.play-icon').classList.remove('hidden')
+    document.querySelector('.pause-icon').classList.add('hidden')
+  }
+
+  document.querySelector('.card').addEventListener('click', () => {
+    toggleDetail()
+    if (playMusic) {
+      playMusic()
+      playMusic = null
+    }
+  })
+  
+  document.querySelector('.audio-button').addEventListener('click', toggleMusic)
 }
 
 function toggleDetail() {
@@ -13,4 +32,17 @@ function toggleDetail() {
   } else {
     element.classList.add('open')
   }
+}
+
+function toggleMusic() {
+  const audio = document.querySelector('audio')
+  if (audio.paused) {
+    audio.play()
+  } else {
+    audio.pause()
+  }
+}
+
+function playMusic() {
+  document.querySelector('audio').play()
 }
