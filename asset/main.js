@@ -2,6 +2,7 @@ window.onload = () => {
   const queryString = document.location.search;
   const urlParams = new URLSearchParams(queryString);
   const guest = urlParams.has('guest') ? urlParams.get('guest') : '';
+  console.log(document.location)
   document.querySelector('.guest').append(guest);
 
   const OS = getOS()
