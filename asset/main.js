@@ -1,5 +1,5 @@
 window.onload = () => {
-  const queryString = document.location.search;
+  const queryString = isInIframe() ? new URL(document.referrer).search : document.location.search;
   const urlParams = new URLSearchParams(queryString);
   const guest = urlParams.has('guest') ? urlParams.get('guest') : '';
   console.log(document.location)
@@ -102,4 +102,8 @@ function getParentURL() {
     parentURL = document.referrer;
   }
   return parentURL;
+}
+
+function isInIframe() {
+  return parent !== window
 }
