@@ -16,10 +16,7 @@ window.onload = () => {
 
   document.querySelector('.card').addEventListener('click', () => {
     toggleDetail()
-    if (playMusic) {
-      playMusic()
-      playMusic = null
-    }
+    playMusic()
   })
   
   document.querySelector('.audio-button').addEventListener('click', toggleMusic)
@@ -35,14 +32,32 @@ function toggleDetail() {
 }
 
 function toggleMusic() {
-  const audio = document.querySelector('audio')
-  if (audio.paused) {
-    audio.play()
+  if (soundIsOn) {
+    audioCtx.suspend()
   } else {
-    audio.pause()
+    audioCtx.resume()
   }
+  soundIsOn = !soundIsOn
 }
 
+var soundIsOn = true;
+var source;
+var audioCtx;
 function playMusic() {
-  document.querySelector('audio').play()
+  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  source = audioCtx.createBufferSource();
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'asset/background-music.mp3');
+  xhr.responseType = 'arraybuffer';
+  xhr.addEventListener('load', function (r) {
+      audioCtx.decodeAudioData(
+              xhr.response, 
+              function (buffer) {
+                  source.buffer = buffer;
+                  source.connect(audioCtx.destination);
+                  source.loop = false;
+              });
+      source.start(0);
+  });
+  xhr.send();
 }
