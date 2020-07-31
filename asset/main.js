@@ -3,6 +3,7 @@ window.onload = () => {
   const urlParams = new URLSearchParams(queryString);
   const guest = urlParams.has('guest') ? urlParams.get('guest') : '';
   console.log(document.location)
+  console.log(getParentURL())
   document.querySelector('.guest').append(guest);
 
   const OS = getOS()
@@ -91,4 +92,14 @@ function getOS() {
   }
 
   return os;
+}
+
+function getParentURL() {
+  var isInIframe = (parent !== window),
+    parentURL = null;
+
+  if (isInIframe) {
+    parentURL = document.referrer;
+  }
+  return parentURL;
 }
