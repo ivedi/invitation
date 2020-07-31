@@ -1,7 +1,7 @@
-const queryString = document.location.search;
-const urlParams = new URLSearchParams(queryString);
-const guest = urlParams.has('guest') ? urlParams.get('guest') : '';
 window.onload = () => {
+  const queryString = document.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const guest = urlParams.has('guest') ? urlParams.get('guest') : '';
   document.querySelector('.guest').append(guest);
 
   const OS = getOS()
